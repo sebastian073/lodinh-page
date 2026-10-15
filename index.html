@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buen Sport – Accesorios para tu moto en una app</title>
+<meta name="description" content="Descarga Buen Sport y compra cascos, guantes, luces y repuestos que sí le quedan a tu moto.">
+<meta name="theme-color" content="#0B1030">
+
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5KRVV852');</script>
 <!-- End Google Tag Manager -->
- <script src="https://js.hsforms.net/forms/embed/52171452.js" defer></script>
-<div class="hs-form-frame" data-region="na1" data-form-id="0effe3a8-9d20-4fff-9857-ad3c8cb2bfcc" data-portal-id="52171452"></div>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Buen Sport – Accesorios para tu moto en una app</title>
-<meta name="description" content="Descarga Buen Sport y compra cascos, guantes, luces y repuestos que sí le quedan a tu moto.">
-<meta name="theme-color" content="#0B1030">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="styles.css">
+
+<!-- HubSpot: script del formulario (el contenedor del formulario va en el body) -->
+<script src="https://js.hsforms.net/forms/embed/52171452.js" defer></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -87,21 +90,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="chip-f c1" aria-hidden="true">⛑️</span>
         <span class="chip-f c2" aria-hidden="true">🧤</span>
         <span class="chip-f c3" aria-hidden="true">💡</span>
-        <form class="form-card" data-tilt="4" data-form action="#" method="post">
+        <div class="form-card">
           <h2>Únete gratis</h2>
           <p>Déjanos tus datos y te enviamos el enlace de descarga.</p>
-          <label for="h-nombre">Nombre</label>
-          <input id="h-nombre" name="nombre" type="text" autocomplete="name" required>
-          <label for="h-correo">Correo electrónico</label>
-          <input id="h-correo" name="correo" type="email" autocomplete="email" required>
-          <label for="h-moto">Tu moto (marca y modelo)</label>
-          <input id="h-moto" name="moto" type="text" placeholder="Ej: Yamaha FZ 150">
-          <button class="btn" type="submit" data-magnet>Quiero la app
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <p class="ok" role="status" hidden>¡Listo! Revisa tu correo: ahí te llega el enlace de descarga.</p>
+          <div class="hs-box">
+            <div class="hs-form-frame" data-region="na1" data-form-id="0effe3a8-9d20-4fff-9857-ad3c8cb2bfcc" data-portal-id="52171452"></div>
+          </div>
           <small>Sin spam. Puedes darte de baja cuando quieras.</small>
-        </form>
+        </div>
       </div>
     </div>
 
@@ -508,6 +504,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       qs.forEach(function(o){o.setAttribute('aria-expanded','false')});
       b.setAttribute('aria-expanded',String(!open));
     });
+  });
+
+  /* ---- HubSpot: cuando alguien envía el formulario ---- */
+  window.addEventListener('message',function(e){
+    var d=e.data;
+    if(d&&d.type==='hsFormCallback'&&d.eventName==='onFormSubmitted'){
+      (window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',form_id:'hubspot_hero'});
+      var c=document.querySelector('.form-card');
+      if(c){var r=c.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2)}
+    }
   });
 
   /* ---- formularios: confirmación visual ----
