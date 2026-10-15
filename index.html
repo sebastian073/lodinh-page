@@ -3,67 +3,146 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MotoKit – Accesorios para tu moto en una app</title>
+<title>Buen Sport – Accesorios para tu moto en una app</title>
+<meta name="description" content="Descarga Buen Sport y compra cascos, guantes, luces y repuestos que sí le quedan a tu moto.">
+<meta name="theme-color" content="#0B1030">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- intro -->
+<div class="intro" aria-hidden="true"><span>Buen Sport</span></div>
+<!-- barra de revoluciones: progreso de scroll -->
+<div class="rev" aria-hidden="true"><i></i></div>
+
+<!-- 1. HEADER -->
 <header>
   <div class="wrap">
-    <a class="logo" href="#">MOTOKIT</a>
-    <nav>
-      <a href="#beneficios">Beneficios</a>
-      <a href="#opiniones">Opiniones</a>
-      <a class="btn" href="#descargar">Descargar</a>
-    </nav>
+    <a class="logo" href="#" aria-label="Buen Sport, inicio">
+      <svg viewBox="0 0 28 22" aria-hidden="true"><path d="M8 0h8L8 22H0z" fill="#fff"/><path d="M20 0h8l-8 22h-8z" fill="#FF5B1F"/></svg>
+      Buen Sport
+    </a>
+    <div class="contact">
+      <a href="tel:+573001234567">300 123 4567</a>
+      <a href="mailto:hola@buensport.app">hola@buensport.app</a>
+      <a class="btn btn--sm" href="#descargar" data-magnet>Descargar</a>
+    </div>
   </div>
 </header>
 
 <main>
+
+  <!-- 2. HERO -->
   <div class="hero">
+    <div class="speed" aria-hidden="true">
+      <i style="--y:12%;--w:240px;--s:2.8s;--dl:-.4s"></i>
+      <i style="--y:24%;--w:420px;--s:3.6s;--dl:-2.1s"></i>
+      <i style="--y:38%;--w:180px;--s:2.4s;--dl:-1.2s"></i>
+      <i style="--y:52%;--w:520px;--s:4.2s;--dl:-3s"></i>
+      <i style="--y:66%;--w:260px;--s:3s;--dl:-.9s"></i>
+      <i style="--y:79%;--w:360px;--s:3.8s;--dl:-2.6s"></i>
+      <i style="--y:90%;--w:200px;--s:2.6s;--dl:-1.7s"></i>
+    </div>
+
+    <svg class="gauge" viewBox="0 0 400 400" aria-hidden="true">
+      <circle class="ring" cx="200" cy="200" r="190"/>
+      <g id="ticks"></g>
+      <g class="needle-sweep"><g class="needle"><line x1="200" y1="200" x2="200" y2="52"/><circle cx="200" cy="200" r="11"/></g></g>
+    </svg>
+
     <div class="wrap">
       <div>
-        <h1>Tu moto,<br>equipada.</h1>
-        <p class="lead">Cascos, guantes, luces y repuestos que sí le quedan a tu moto. Elige el modelo y compra en minutos.</p>
-        <div class="btns">
-          <a class="btn btn-dark" href="#descargar">Descargar APK</a>
-          <a class="btn btn-ghost" href="#beneficios">Ver beneficios</a>
+        <h1 class="h1">
+          <span class="ln" style="--i:0"><span>Rueda como</span></span>
+          <span class="ln" style="--i:1"><span>te mereces.</span></span>
+        </h1>
+        <p class="lead">Cascos, guantes, luces y repuestos que sí le quedan a tu moto. Regístrate y tu primera compra va con envío gratis.</p>
+        <div class="acts">
+          <a class="btn btn--ghost" href="#producto" data-magnet>Ver cómo funciona
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
-        <small>Gratis · Android 8.0 o superior · 18 MB</small>
       </div>
-      <div class="phone" role="img" aria-label="Pantalla de la app con accesorios compatibles con tu moto">
-        <div class="bar"><span>Mi moto: Yamaha FZ 150</span><span>🏍️</span></div>
-        <span class="chip">Solo lo que le queda a tu moto</span>
-        <div class="item"><i>⛑️</i><div><b>Casco integral</b><span>Certificado DOT</span></div><em>$189.900</em></div>
-        <div class="item"><i>🧤</i><div><b>Guantes de cuero</b><span>Protección en nudillos</span></div><em>$74.900</em></div>
-        <div class="item"><i>💡</i><div><b>Luces LED</b><span>Instalación simple</span></div><em>$52.000</em></div>
-        <div class="item"><i>🔒</i><div><b>Candado de disco</b><span>Con alarma</span></div><em>$58.500</em></div>
+
+      <div class="hero-form">
+        <form class="form-card" data-tilt="4" data-form action="#" method="post">
+          <h2>Únete gratis</h2>
+          <p>Déjanos tus datos y te enviamos el enlace de descarga.</p>
+          <label for="h-nombre">Nombre</label>
+          <input id="h-nombre" name="nombre" type="text" autocomplete="name" required>
+          <label for="h-correo">Correo electrónico</label>
+          <input id="h-correo" name="correo" type="email" autocomplete="email" required>
+          <label for="h-moto">Tu moto (marca y modelo)</label>
+          <input id="h-moto" name="moto" type="text" placeholder="Ej: Yamaha FZ 150">
+          <button class="btn" type="submit" data-magnet>Quiero la app
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="ok" role="status" hidden>¡Listo! Revisa tu correo: ahí te llega el enlace de descarga.</p>
+          <small>Sin spam. Puedes darte de baja cuando quieras.</small>
+        </form>
       </div>
     </div>
   </div>
 
+  <!-- cintas -->
+  <div class="bands-clip" aria-hidden="true">
+  <div class="bands">
+    <div class="band band--a"><div class="track">
+      <span>Cascos<b></b>Guantes<b></b>Luces LED<b></b>Candados<b></b>Espejos<b></b>Maletas<b></b>Repuestos<b></b></span>
+      <span>Cascos<b></b>Guantes<b></b>Luces LED<b></b>Candados<b></b>Espejos<b></b>Maletas<b></b>Repuestos<b></b></span>
+    </div></div>
+    <div class="band band--b"><div class="track">
+      <span>Rueda seguro<b></b>Usa casco<b></b>Rueda seguro<b></b>Usa casco<b></b>Rueda seguro<b></b>Usa casco<b></b></span>
+      <span>Rueda seguro<b></b>Usa casco<b></b>Rueda seguro<b></b>Usa casco<b></b>Rueda seguro<b></b>Usa casco<b></b></span>
+    </div></div>
+  </div>
+  </div>
+
+  <!-- 3. BENEFICIOS -->
   <section class="benefits" id="beneficios">
     <div class="wrap">
-      <h2>Menos vueltas, más rodar.</h2>
-      <div class="b-list">
-        <div class="b"><h3>Compatible con tu moto</h3><p>Registra marca y modelo una vez. La app te muestra solo accesorios que encajan.</p></div>
-        <div class="b"><h3>Envío rápido</h3><p>Sigue tu pedido en tiempo real y recíbelo en casa o recógelo en un punto cercano.</p></div>
-        <div class="b"><h3>Ofertas solo en la app</h3><p>Descuentos semanales y alertas cuando baja el precio de lo que tienes en favoritos.</p></div>
-        <div class="b"><h3>Compra segura</h3><p>Paga con tarjeta, PSE o contra entrega. Si no te queda, lo cambias sin complicaciones.</p></div>
+      <h2 class="rv">Menos vueltas. Más ruta.</h2>
+      <div class="bento" data-stagger>
+        <article class="card card--blue wide spot">
+          <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg></div>
+          <h3>Solo lo que le queda a tu moto</h3>
+          <p>Registra marca y modelo una vez. Buen Sport filtra el catálogo y descarta lo que no encaja.</p>
+        </article>
+        <article class="card spot">
+          <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></div>
+          <h3>Envío rápido</h3>
+          <p>Sigue tu pedido en tiempo real y recíbelo en casa o en un punto cercano.</p>
+        </article>
+        <article class="card spot">
+          <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg></div>
+          <h3>Ofertas solo en la app</h3>
+          <p>Descuentos semanales y alertas cuando baja el precio de tus favoritos.</p>
+        </article>
+        <article class="card card--navy wide spot">
+          <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+          <h3>Compra segura, cambios sin drama</h3>
+          <p>Paga con tarjeta, PSE o contra entrega. Si no te queda, lo cambias desde la app.</p>
+        </article>
       </div>
     </div>
   </section>
 
+  <!-- 4. CTA -->
   <section class="cta" id="descargar">
     <div class="wrap">
-      <div>
-        <h2>Instala MotoKit hoy.</h2>
+      <div class="rv rv-l">
+        <h2>Instala Buen Sport hoy.</h2>
         <p>Descarga el APK y empieza a armar el equipo de tu moto en menos de tres minutos.</p>
-        <a class="btn" href="#">Descargar APK gratis</a>
+        <a class="btn" href="#" data-magnet>Descargar APK gratis
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+        </a>
+        <small>Gratis. Para Android 8.0 o superior. Pesa 18 MB.</small>
       </div>
-      <ol class="steps">
+      <ol class="steps rv rv-r">
         <li><div><b>Descarga el archivo</b><span>Toca el botón y guarda el APK en tu teléfono.</span></div></li>
         <li><div><b>Permite la instalación</b><span>Si Android lo pide, activa “instalar apps de esta fuente”.</span></div></li>
         <li><div><b>Abre y elige tu moto</b><span>Indica marca y modelo y empieza a comprar.</span></div></li>
@@ -71,26 +150,273 @@
     </div>
   </section>
 
-  <section id="opiniones">
+  <!-- 5. SOCIAL PROOF -->
+  <section class="proof" id="opiniones">
     <div class="wrap">
-      <h2>Lo dicen quienes ya ruedan con MotoKit.</h2>
-      <div class="stats">
-        <div>4,8<small>Calificación promedio</small></div>
-        <div>25 mil+<small>Descargas</small></div>
-        <div>96%<small>Compras que llegaron bien a la primera</small></div>
+      <h2 class="rv">Lo dicen quienes ya ruedan con Buen Sport.</h2>
+      <div class="stats" data-stagger>
+        <div class="stat"><strong><span data-to="4.8" data-dec="1">4,8</span></strong><span>Calificación promedio de los usuarios</span></div>
+        <div class="stat"><strong><span data-to="25" data-suffix=" mil+">25 mil+</span></strong><span>Descargas de la app</span></div>
+        <div class="stat"><strong><span data-to="96" data-suffix="%">96%</span></strong><span>De los pedidos llegaron bien a la primera</span></div>
       </div>
-      <div class="quotes">
-        <blockquote><div class="stars" aria-label="5 estrellas">★★★★★</div><p>Por fin un lugar donde no tengo que adivinar si el espejo le sirve a mi moto. Me llegó en dos días.</p><footer><b>Andrés M.</b>Mensajero, Bogotá</footer></blockquote>
-        <blockquote><div class="stars" aria-label="5 estrellas">★★★★★</div><p>Compré casco y guantes con descuento de la app. Pagué por PSE y todo fue rápido.</p><footer><b>Laura P.</b>Viaja en moto a diario, Medellín</footer></blockquote>
-        <blockquote><div class="stars" aria-label="4 estrellas">★★★★☆</div><p>Me avisaron cuando bajó el precio de las luces LED. Las instalé el mismo fin de semana.</p><footer><b>Camilo R.</b>Motociclista de fin de semana, Cali</footer></blockquote>
+      <div class="quotes" data-stagger>
+        <blockquote class="quote">
+          <div class="stars" role="img" aria-label="5 de 5 estrellas"><i style="--k:0">★</i><i style="--k:1">★</i><i style="--k:2">★</i><i style="--k:3">★</i><i style="--k:4">★</i></div>
+          <p>Por fin un lugar donde no tengo que adivinar si el espejo le sirve a mi moto. Me llegó en dos días.</p>
+          <footer><span class="av">A</span><div><b>Andrés M.</b>Mensajero, Bogotá</div></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <div class="stars" role="img" aria-label="5 de 5 estrellas"><i style="--k:0">★</i><i style="--k:1">★</i><i style="--k:2">★</i><i style="--k:3">★</i><i style="--k:4">★</i></div>
+          <p>Compré casco y guantes con el descuento de la app. Pagué por PSE y todo fue rápido.</p>
+          <footer><span class="av f">L</span><div><b>Laura P.</b>Viaja en moto a diario, Medellín</div></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <div class="stars" role="img" aria-label="4 de 5 estrellas"><i style="--k:0">★</i><i style="--k:1">★</i><i style="--k:2">★</i><i style="--k:3">★</i><i class="off" style="--k:4">★</i></div>
+          <p>Me avisaron cuando bajó el precio de las luces LED. Las instalé el mismo fin de semana.</p>
+          <footer><span class="av n">C</span><div><b>Camilo R.</b>Motociclista de fin de semana, Cali</div></footer>
+        </blockquote>
       </div>
     </div>
   </section>
+
+  <!-- 6. EXPLICACIÓN DEL PRODUCTO -->
+  <section class="product" id="producto">
+    <div class="wrap">
+      <div class="phone-wrap rv rv-l">
+        <div class="stage">
+          <div class="phone-tilt" data-tilt="9">
+            <div class="phone" role="img" aria-label="Pantalla de la app Buen Sport con accesorios compatibles con tu moto">
+              <div class="bar"><span>Mi moto: Yamaha FZ 150</span><span>🏍️</span></div>
+              <span class="chip">Solo lo que le queda a tu moto</span>
+              <div class="item"><i>⛑️</i><div><b>Casco integral</b><span>Certificado DOT</span></div><em>$189.900</em></div>
+              <div class="item"><i>🧤</i><div><b>Guantes de cuero</b><span>Protección en nudillos</span></div><em>$74.900</em></div>
+              <div class="item"><i>💡</i><div><b>Luces LED</b><span>Instalación simple</span></div><em>$52.000</em></div>
+              <div class="item"><i>🔒</i><div><b>Candado de disco</b><span>Con alarma</span></div><em>$58.500</em></div>
+              <div class="toast">Compatible con tu Yamaha FZ 150</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="rv">Así funciona Buen Sport.</h2>
+        <p class="intro rv" style="--d:.1s">Buen Sport es una app para comprar accesorios y repuestos de moto sin adivinar la compatibilidad. Tú dices qué moto tienes y la app filtra el catálogo por ti.</p>
+        <ul class="how" data-stagger>
+          <li><span class="n">1</span><b>Registra tu moto</b><span class="t">Marca, modelo y año. Puedes guardar varias motos.</span></li>
+          <li><span class="n">2</span><b>Explora el catálogo</b><span class="t">Cascos, protección, luces, seguridad y repuestos: solo lo compatible.</span></li>
+          <li><span class="n">3</span><b>Compra y rastrea</b><span class="t">Paga desde la app y sigue el envío hasta tu puerta.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="side rv rv-l">
+        <h2>Preguntas frecuentes.</h2>
+        <p>¿No está tu duda? Escríbenos y te respondemos el mismo día.</p>
+        <a class="btn btn--sm" href="mailto:hola@buensport.app" style="--b-bg:var(--navy);--b-fg:#fff;--b-bd:var(--navy);--b-hbg:var(--flame);--b-hfg:var(--navy)">Escribir al equipo</a>
+      </div>
+      <div class="acc rv rv-r">
+        <h3><button class="q" id="q1" aria-expanded="true" aria-controls="a1">¿La app es gratis?<span class="pm" aria-hidden="true"></span></button>
+          <div class="a" id="a1" role="region" aria-labelledby="q1"><div><p>Sí. Descargarla y crear tu cuenta no tiene costo. Solo pagas los productos que compres.</p></div></div></h3>
+        <h3><button class="q" id="q2" aria-expanded="false" aria-controls="a2">¿Es seguro instalar el APK?<span class="pm" aria-hidden="true"></span></button>
+          <div class="a" id="a2" role="region" aria-labelledby="q2"><div><p>Descárgalo únicamente desde este sitio oficial. Android te pedirá permitir la instalación desde esta fuente; puedes desactivar ese permiso al terminar.</p></div></div></h3>
+        <h3><button class="q" id="q3" aria-expanded="false" aria-controls="a3">¿Cómo sé si un accesorio le queda a mi moto?<span class="pm" aria-hidden="true"></span></button>
+          <div class="a" id="a3" role="region" aria-labelledby="q3"><div><p>Al registrar tu moto, la app solo muestra productos compatibles y marca cada uno con una etiqueta de compatibilidad.</p></div></div></h3>
+        <h3><button class="q" id="q4" aria-expanded="false" aria-controls="a4">¿Qué métodos de pago aceptan?<span class="pm" aria-hidden="true"></span></button>
+          <div class="a" id="a4" role="region" aria-labelledby="q4"><div><p>Tarjeta débito y crédito, PSE y pago contra entrega en las ciudades habilitadas.</p></div></div></h3>
+        <h3><button class="q" id="q5" aria-expanded="false" aria-controls="a5">¿Puedo cambiar o devolver un producto?<span class="pm" aria-hidden="true"></span></button>
+          <div class="a" id="a5" role="region" aria-labelledby="q5"><div><p>Sí. Si no te queda o llega con algún problema, puedes pedir el cambio desde la app dentro del plazo de la política de devoluciones.</p></div></div></h3>
+        <h3><button class="q" id="q6" aria-expanded="false" aria-controls="a6">¿En cuánto tiempo llega mi pedido?<span class="pm" aria-hidden="true"></span></button>
+          <div class="a" id="a6" role="region" aria-labelledby="q6"><div><p>En ciudades principales suele tardar de 1 a 3 días hábiles. Verás el tiempo estimado antes de pagar.</p></div></div></h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. PREFOOTER -->
+  <section class="pre">
+    <div class="wrap">
+      <div class="rv rv-l">
+        <h2>Un regalo para tu primera ruta.</h2>
+        <p class="sub">Suscríbete y recibe 10% de descuento en tu primera compra.</p>
+      </div>
+      <form class="rv rv-r" data-form action="#" method="post">
+        <label class="sr" for="p-correo">Correo electrónico</label>
+        <input id="p-correo" name="correo" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+        <button class="btn" type="submit" data-magnet>Quiero mi 10%</button>
+        <small>Al suscribirte aceptas recibir correos de Buen Sport.</small>
+        <p class="ok" role="status" hidden>¡Listo! Tu cupón del 10% va en camino a tu correo.</p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
+<!-- 9. FOOTER -->
 <footer class="site">
-  <div class="wrap"><span>© 2026 MotoKit</span><span>Usa casco. Rueda seguro.</span></div>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="logo" href="#" aria-label="Buen Sport, inicio">
+          <svg viewBox="0 0 28 22" aria-hidden="true"><path d="M8 0h8L8 22H0z" fill="#fff"/><path d="M20 0h8l-8 22h-8z" fill="#FF5B1F"/></svg>
+          Buen Sport
+        </a>
+        <p class="tag">Accesorios para tu moto, en una app. Usa casco. Rueda seguro.</p>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="tel:+573001234567">300 123 4567</a></li>
+          <li><a href="mailto:hola@buensport.app">hola@buensport.app</a></li>
+          <li><span>Bogotá, Colombia</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Síguenos</h3>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Buen Sport. Todos los derechos reservados.</span><span><a href="#">Términos</a> y <a href="#">Privacidad</a></span></div>
+  </div>
+  <div class="word" data-text="Buen Sport" aria-hidden="true">Buen Sport</div>
 </footer>
 
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var header=document.querySelector('header');
+
+  /* ---- tacómetro: marcas y números ---- */
+  var ticks=document.getElementById('ticks');
+  if(ticks){
+    var NS='http://www.w3.org/2000/svg';
+    for(var i=0;i<=24;i++){
+      var a=(-120+i*10)*Math.PI/180, major=i%4===0;
+      var r1=major?146:158, r2=174;
+      var l=document.createElementNS(NS,'line');
+      l.setAttribute('x1',200+Math.sin(a)*r1);l.setAttribute('y1',200-Math.cos(a)*r1);
+      l.setAttribute('x2',200+Math.sin(a)*r2);l.setAttribute('y2',200-Math.cos(a)*r2);
+      l.setAttribute('class',(major?'major ':'')+(i>=20?'red':''));
+      ticks.appendChild(l);
+      if(major){
+        var t=document.createElementNS(NS,'text');
+        t.setAttribute('x',200+Math.sin(a)*118);t.setAttribute('y',200-Math.cos(a)*118+7);
+        t.textContent=i/4;ticks.appendChild(t);
+      }
+    }
+  }
+
+  /* ---- scroll: barra de revoluciones, aguja, header, parallax ---- */
+  var ticking=false;
+  function update(){
+    var y=window.scrollY||window.pageYOffset;
+    var h=root.scrollHeight-window.innerHeight;
+    var p=h>0?Math.min(1,Math.max(0,y/h)):0;
+    root.style.setProperty('--p',p.toFixed(4));
+    root.style.setProperty('--rot',(-120+240*p).toFixed(1));
+    root.style.setProperty('--sy',Math.round(y));
+    header.classList.toggle('scrolled',y>10);
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+  window.addEventListener('resize',update);
+  update();
+
+  /* ---- revelado + contadores ---- */
+  document.querySelectorAll('[data-stagger]').forEach(function(c){
+    Array.prototype.forEach.call(c.children,function(ch,i){ch.classList.add('rv');ch.style.setProperty('--d',(i*110)+'ms')});
+  });
+  var counters=document.querySelectorAll('[data-to]');
+  function fmt(n,d){return n.toLocaleString('es-CO',{minimumFractionDigits:d,maximumFractionDigits:d})}
+  function setFinal(el){el.textContent=fmt(+el.dataset.to,+(el.dataset.dec||0))+(el.dataset.suffix||'')}
+  function count(el){
+    var to=+el.dataset.to,d=+(el.dataset.dec||0),s=el.dataset.suffix||'',t0=null,dur=1700;
+    el.textContent=fmt(0,d)+s;
+    function step(t){
+      if(!t0)t0=t;
+      var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,4);
+      el.textContent=fmt(to*e,d)+s;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var targets=document.querySelectorAll('.rv,.steps,.word');
+  if(reduce||!('IntersectionObserver' in window)){
+    targets.forEach(function(e){e.classList.add('in','done')});
+    counters.forEach(setFinal);
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        var el=en.target;
+        el.classList.add('in');
+        if(el.dataset&&el.dataset.to)count(el);
+        el.querySelectorAll('[data-to]').forEach(count);
+        var d=parseFloat(getComputedStyle(el).getPropertyValue('--d'))||0;
+        setTimeout(function(){el.classList.add('done')},(d>20?d:d*1000)+1100);
+        io.unobserve(el);
+      });
+    },{threshold:.14,rootMargin:'0px 0px -50px 0px'});
+    targets.forEach(function(e){io.observe(e)});
+  }
+
+  /* ---- inclinación 3D, botones magnéticos y foco de luz ---- */
+  if(fine&&!reduce){
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      var max=parseFloat(el.dataset.tilt)||6;
+      el.addEventListener('pointermove',function(e){
+        var r=el.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        el.style.transform='perspective(900px) rotateY('+(x*max*2).toFixed(2)+'deg) rotateX('+(-y*max*2).toFixed(2)+'deg)';
+      });
+      el.addEventListener('pointerleave',function(){el.style.transform=''});
+    });
+    document.querySelectorAll('[data-magnet]').forEach(function(b){
+      b.addEventListener('pointermove',function(e){
+        var r=b.getBoundingClientRect();
+        var x=e.clientX-(r.left+r.width/2),y=e.clientY-(r.top+r.height/2);
+        b.style.transform='translate('+(x*.18).toFixed(1)+'px,'+(y*.28).toFixed(1)+'px)';
+      });
+      b.addEventListener('pointerleave',function(){b.style.transform=''});
+    });
+    document.querySelectorAll('.spot').forEach(function(c){
+      c.addEventListener('pointermove',function(e){
+        var r=c.getBoundingClientRect();
+        c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+        c.style.setProperty('--my',(e.clientY-r.top)+'px');
+      });
+    });
+  }
+
+  /* ---- FAQ: acordeón (una respuesta abierta a la vez) ---- */
+  var qs=document.querySelectorAll('.q');
+  qs.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.getAttribute('aria-expanded')==='true';
+      qs.forEach(function(o){o.setAttribute('aria-expanded','false')});
+      b.setAttribute('aria-expanded',String(!open));
+    });
+  });
+
+  /* ---- formularios: confirmación visual ----
+     Para conectar tu backend, borra e.preventDefault() y pon el action real. */
+  document.querySelectorAll('form[data-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');
+      if(ok)ok.hidden=false;
+      if(btn){btn.disabled=true;btn.style.opacity='.7';btn.style.cursor='default'}
+    });
+  });
+})();
+</script>
 </body>
 </html>
