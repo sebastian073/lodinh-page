@@ -48,6 +48,8 @@
       <i style="--y:90%;--w:200px;--s:2.6s;--dl:-1.7s"></i>
     </div>
 
+    <div class="glow" aria-hidden="true"></div>
+
     <svg class="gauge" viewBox="0 0 400 400" aria-hidden="true">
       <circle class="ring" cx="200" cy="200" r="190"/>
       <g id="ticks"></g>
@@ -69,6 +71,9 @@
       </div>
 
       <div class="hero-form">
+        <span class="chip-f c1" aria-hidden="true">⛑️</span>
+        <span class="chip-f c2" aria-hidden="true">🧤</span>
+        <span class="chip-f c3" aria-hidden="true">💡</span>
         <form class="form-card" data-tilt="4" data-form action="#" method="post">
           <h2>Únete gratis</h2>
           <p>Déjanos tus datos y te enviamos el enlace de descarga.</p>
@@ -84,6 +89,41 @@
           <p class="ok" role="status" hidden>¡Listo! Revisa tu correo: ahí te llega el enlace de descarga.</p>
           <small>Sin spam. Puedes darte de baja cuando quieras.</small>
         </form>
+      </div>
+    </div>
+
+    <div class="road" aria-hidden="true">
+      <div class="lane"></div>
+      <div class="rider">
+        <svg class="bike" viewBox="0 0 560 300">
+          <defs><linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".8"/><stop offset="1" stop-color="#FFF3C4" stop-opacity="0"/></linearGradient></defs>
+          <ellipse cx="290" cy="292" rx="215" ry="6" fill="rgba(0,0,0,.45)"/>
+          <path d="M468 150 L560 108 L560 200 Z" fill="url(#beam)"/>
+          <path d="M120 226 L262 200" stroke="#9AA3DB" stroke-width="11" stroke-linecap="round"/>
+          <path d="M276 214 C230 226 168 214 92 188" stroke="#C9CEEF" stroke-width="15" stroke-linecap="round" fill="none"/>
+          <path d="M96 189 L84 185" stroke="#0B1030" stroke-width="15" stroke-linecap="round"/>
+          <g class="wheel"><circle cx="120" cy="226" r="56" fill="none" stroke="#10132B" stroke-width="14"/><circle cx="120" cy="226" r="45" fill="none" stroke="#CFD4F5" stroke-width="4"/><circle cx="120" cy="226" r="24" fill="none" stroke="#8892C8" stroke-width="3"/><g stroke="#CFD4F5" stroke-width="3"><line x1="120" y1="181" x2="120" y2="271"/><line x1="81" y1="203.5" x2="159" y2="248.5"/><line x1="81" y1="248.5" x2="159" y2="203.5"/></g><circle cx="120" cy="226" r="9" fill="#FF5B1F"/></g>
+          <g class="wheel"><circle cx="460" cy="226" r="56" fill="none" stroke="#10132B" stroke-width="14"/><circle cx="460" cy="226" r="45" fill="none" stroke="#CFD4F5" stroke-width="4"/><circle cx="460" cy="226" r="24" fill="none" stroke="#8892C8" stroke-width="3"/><g stroke="#CFD4F5" stroke-width="3"><line x1="460" y1="181" x2="460" y2="271"/><line x1="421" y1="203.5" x2="499" y2="248.5"/><line x1="421" y1="248.5" x2="499" y2="203.5"/></g><circle cx="460" cy="226" r="9" fill="#FF5B1F"/></g>
+          <path d="M252 148 L346 156 L362 206 L292 220 L248 196 Z" fill="#2B3166" stroke="#0B1030" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M250 114 L178 104 Q120 98 82 120 L92 134 Q140 126 250 138 Z" fill="#FF5B1F" stroke="#0B1030" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M258 108 L192 103 Q166 103 154 112 L252 128 Z" fill="#0B1030"/>
+          <path d="M244 120 L300 148 L288 204" stroke="#1B2250" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <ellipse cx="294" cy="208" rx="24" ry="10" fill="#0B1030"/>
+          <path d="M432 112 L460 226" stroke="#E6E9FF" stroke-width="10" stroke-linecap="round"/>
+          <path d="M430 192 Q464 172 496 198" stroke="#FF5B1F" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M258 108 Q300 82 354 104 L368 152 L262 140 Z" fill="#1534E0" stroke="#0B1030" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M278 100 Q312 90 346 108" stroke="#fff" stroke-opacity=".6" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M352 104 L410 110 L454 148 L474 168 L420 180 L366 152 Z" fill="#FF5B1F" stroke="#0B1030" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M394 108 L424 80 L440 84 L416 114 Z" fill="#fff" fill-opacity=".6"/>
+          <path d="M422 104 L396 96" stroke="#0B1030" stroke-width="9" stroke-linecap="round"/>
+          <ellipse cx="462" cy="148" rx="9" ry="7" fill="#FFF3C4"/>
+          <path d="M234 114 L292 42 Q322 30 336 54 L304 122 Z" fill="#F2F4FA" stroke="#0B1030" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M258 96 L306 60" stroke="#FF5B1F" stroke-width="9" stroke-linecap="round"/>
+          <path d="M306 62 L402 98" stroke="#F2F4FA" stroke-width="16" stroke-linecap="round"/>
+          <circle cx="404" cy="98" r="9" fill="#0B1030"/>
+          <circle cx="340" cy="32" r="23" fill="#FF5B1F" stroke="#0B1030" stroke-width="3"/>
+          <path d="M350 22 Q372 26 366 44 L346 42 Z" fill="#0B1030"/>
+        </svg>
       </div>
     </div>
   </div>
@@ -207,6 +247,10 @@
         </ul>
       </div>
     </div>
+    <div class="catalog">
+      <div class="wrap"><h3 class="cat-title rv">Lo que vas a encontrar</h3></div>
+      <div class="cat-track" data-loop><article class="pcard" style="--c1:#1534E0;--c2:#0B1030"><span class="tag">Compatible</span><i class="e">⛑️</i><b>Casco integral</b><span>Certificado DOT</span><em>$189.900</em></article><article class="pcard" style="--c1:#FF5B1F;--c2:#B3330A"><span class="tag">Compatible</span><i class="e">🧤</i><b>Guantes de cuero</b><span>Nudillos protegidos</span><em>$74.900</em></article><article class="pcard" style="--c1:#0B1030;--c2:#1534E0"><span class="tag">Compatible</span><i class="e">💡</i><b>Luces LED</b><span>Instalación simple</span><em>$52.000</em></article><article class="pcard" style="--c1:#1534E0;--c2:#FF5B1F"><span class="tag">Compatible</span><i class="e">🔒</i><b>Candado de disco</b><span>Con alarma</span><em>$58.500</em></article><article class="pcard" style="--c1:#FF5B1F;--c2:#0B1030"><span class="tag">Compatible</span><i class="e">🪞</i><b>Espejos retrovisores</b><span>Plegables</span><em>$39.900</em></article><article class="pcard" style="--c1:#0B1030;--c2:#FF5B1F"><span class="tag">Compatible</span><i class="e">🧳</i><b>Maleta trasera</b><span>28 litros</span><em>$129.900</em></article><article class="pcard" style="--c1:#1534E0;--c2:#0B1030"><span class="tag">Compatible</span><i class="e">🛡️</i><b>Protector de motor</b><span>Aluminio</span><em>$64.900</em></article><article class="pcard" style="--c1:#B3330A;--c2:#FF5B1F"><span class="tag">Compatible</span><i class="e">⛓️</i><b>Kit de arrastre</b><span>Cadena y piñones</span><em>$119.000</em></article></div>
+    </div>
   </section>
 
   <!-- 7. FAQ -->
@@ -287,6 +331,9 @@
   <div class="word" data-text="Buen Sport" aria-hidden="true">Buen Sport</div>
 </footer>
 
+<a class="btn dock" href="#descargar">Descargar APK gratis</a>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
 <script>
 (function(){
   var root=document.documentElement;
@@ -315,6 +362,7 @@
   }
 
   /* ---- scroll: barra de revoluciones, aguja, header, parallax ---- */
+  var dock=document.querySelector('.dock'),cta=document.getElementById('descargar'),foot=document.querySelector('.site');
   var ticking=false;
   function update(){
     var y=window.scrollY||window.pageYOffset;
@@ -324,6 +372,10 @@
     root.style.setProperty('--rot',(-120+240*p).toFixed(1));
     root.style.setProperty('--sy',Math.round(y));
     header.classList.toggle('scrolled',y>10);
+    if(dock){
+      var c=cta.getBoundingClientRect(),f=foot.getBoundingClientRect();
+      dock.classList.toggle('show',y>560&&!(c.top<window.innerHeight&&c.bottom>0)&&f.top>window.innerHeight);
+    }
     ticking=false;
   }
   window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
@@ -396,6 +448,45 @@
     });
   }
 
+  /* ---- extras: brillo del hero, marcas de agua, catálogo infinito ---- */
+  var hero=document.querySelector('.hero');
+  if(fine&&!reduce&&hero){
+    hero.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect();
+      hero.style.setProperty('--gx',(e.clientX-r.left)+'px');
+      hero.style.setProperty('--gy',(e.clientY-r.top)+'px');
+    });
+  }
+  document.querySelectorAll('.card .ico svg').forEach(function(s){
+    var w=s.cloneNode(true);w.setAttribute('class','wm');w.setAttribute('aria-hidden','true');s.closest('.card').appendChild(w);
+  });
+  document.querySelectorAll('[data-loop]').forEach(function(t){
+    Array.prototype.slice.call(t.children).forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');t.appendChild(k)});
+  });
+
+  /* ---- confeti ---- */
+  var cv=document.getElementById('confetti'),cx=cv&&cv.getContext('2d'),parts=[],raf=0;
+  function loop(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    parts=parts.filter(function(p){return p.l>0});
+    parts.forEach(function(p){
+      p.vy+=.28;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.l--;
+      cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.globalAlpha=Math.min(1,p.l/30);
+      cx.fillStyle=p.c;cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);cx.restore();
+    });
+    if(parts.length){raf=requestAnimationFrame(loop)}else{raf=0;cx.clearRect(0,0,cv.width,cv.height)}
+  }
+  function burst(x,y){
+    if(reduce||!cx)return;
+    cv.width=window.innerWidth;cv.height=window.innerHeight;
+    var cols=['#FF5B1F','#1534E0','#FFFFFF','#FFCF1F','#0B1030'];
+    for(var i=0;i<150;i++){
+      var a=Math.random()*Math.PI*2,s=4+Math.random()*11;
+      parts.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-7,r:Math.random()*6.28,vr:(Math.random()-.5)*.4,w:6+Math.random()*7,h:3+Math.random()*5,c:cols[i%cols.length],l:90+Math.random()*60});
+    }
+    if(!raf)loop();
+  }
+
   /* ---- FAQ: acordeón (una respuesta abierta a la vez) ---- */
   var qs=document.querySelectorAll('.q');
   qs.forEach(function(b){
@@ -413,6 +504,7 @@
       e.preventDefault();
       var ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');
       if(ok)ok.hidden=false;
+      if(btn){var r=btn.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2)}
       if(btn){btn.disabled=true;btn.style.opacity='.7';btn.style.cursor='default'}
     });
   });

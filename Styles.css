@@ -318,3 +318,93 @@ input:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 4px rgba(255
   .word::after{clip-path:inset(0 0 0 0)}
   .rev{display:none}
 }
+
+
+/* =====================================================
+   v2 · MÁS IMPACTO
+   ===================================================== */
+@keyframes drift{to{transform:translate(-140px,-70px) scale(1.25)}}
+@keyframes ride{from{transform:translateX(-140%)}to{transform:translateX(calc(100vw + 40%))}}
+@keyframes bob{to{transform:translateY(-3px) rotate(-.7deg)}}
+@keyframes lane2{to{background-position:-90px 0}}
+
+/* ---------- hero con más presencia ---------- */
+.hero{overflow:hidden;overflow:clip;min-height:calc(100vh - 68px);display:flex;flex-direction:column;justify-content:center;padding-bottom:clamp(190px,17vw,240px)}
+.hero .wrap{width:100%}
+.hero::after{content:"";position:absolute;z-index:-1;width:640px;height:640px;right:-160px;bottom:-80px;border-radius:50%;background:radial-gradient(circle,rgba(255,91,31,.6),transparent 66%);filter:blur(34px);animation:drift 12s ease-in-out infinite alternate}
+.glow{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(540px circle at var(--gx,72%) var(--gy,28%),rgba(255,255,255,.2),transparent 62%)}
+.h1{text-shadow:.045em .045em 0 var(--navy)}
+.h1 .ln{padding:.04em .16em .16em 0}
+
+/* chips flotantes alrededor del formulario */
+.hero-form{position:relative}
+.chip-f{position:absolute;z-index:2;width:64px;height:64px;border-radius:18px;display:grid;place-items:center;font-size:1.95rem;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.4);box-shadow:0 16px 30px -10px rgba(0,0,0,.55);animation:float 5s ease-in-out infinite;pointer-events:none}
+.c1{top:-32px;right:-24px}
+.c2{left:-36px;bottom:96px;animation-delay:-1.7s}
+.c3{right:36px;bottom:-34px;animation-delay:-3.2s}
+@media(max-width:860px){.c1{right:-6px}.c2{left:-8px}}
+
+/* carretera con la moto */
+.road{position:absolute;z-index:1;left:0;right:0;bottom:24px;height:104px;background:#070A22;border-block:4px solid var(--flame)}
+.road .lane{position:absolute;left:0;right:0;top:68%;height:5px;background:repeating-linear-gradient(90deg,#fff 0 42px,transparent 42px 90px);background-size:90px 5px;animation:lane2 .45s linear infinite}
+.rider{position:absolute;left:0;bottom:30px;width:clamp(230px,27vw,380px);transform:translateX(-140%);animation:ride 9s linear 2.7s infinite}
+.rider::before{content:"";position:absolute;right:88%;top:44%;width:95%;height:44px;opacity:.9;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.85)) 0 0/100% 3px no-repeat,
+             linear-gradient(90deg,transparent,rgba(255,255,255,.55)) 20% 20px/80% 3px no-repeat,
+             linear-gradient(90deg,transparent,rgba(255,255,255,.7)) 8% 41px/92% 3px no-repeat}
+.bike{width:100%;height:auto;overflow:visible;transform-origin:50% 100%;animation:bob .3s ease-in-out infinite alternate}
+.wheel{transform-box:fill-box;transform-origin:center;animation:spin .42s linear infinite}
+@media(max-width:700px){.road{height:88px}.rider{width:210px;bottom:22px}}
+
+/* ---------- beneficios: marcas de agua ---------- */
+.card .wm{position:absolute;right:-34px;top:-34px;width:230px;height:230px;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;opacity:.1;transform:rotate(-14deg);transition:transform .9s var(--ease),opacity .4s;pointer-events:none}
+.card:hover .wm{transform:rotate(0) scale(1.12);opacity:.2}
+
+/* ---------- cta con borde diagonal ---------- */
+.cta{--cut:clamp(30px,5vw,70px);clip-path:polygon(0 var(--cut),100% 0,100% 100%,0 100%);margin-top:calc(var(--cut) * -1);padding-top:calc(clamp(72px,9vw,120px) + var(--cut))}
+
+/* ---------- panel de estadísticas ---------- */
+.stats{position:relative;overflow:hidden;background:var(--navy);color:#fff;border:0;border-radius:28px;padding:8px 10px}
+.stats::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px 240px at 88% 0,rgba(255,91,31,.38),transparent 70%),radial-gradient(460px 240px at 0 100%,rgba(21,52,224,.75),transparent 70%)}
+.stat,.stat:first-child{position:relative;border-left:1px solid rgba(255,255,255,.18);padding:34px 30px 30px}
+.stat:first-child{border-left:0}
+.stat strong{color:var(--flame);font-size:clamp(3.8rem,8.6vw,6.8rem);text-shadow:.03em .03em 0 rgba(0,0,0,.45)}
+.stat>span{color:var(--soft)}
+@media(max-width:700px){
+  .stat,.stat:first-child{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding:24px 22px}
+  .stat:first-child{border-top:0}
+}
+
+/* ---------- catálogo en movimiento ---------- */
+.catalog{margin-top:clamp(64px,8vw,104px);overflow:hidden}
+.cat-title{font-size:clamp(2.2rem,4.6vw,3.4rem);margin-bottom:22px}
+.cat-track{display:flex;gap:18px;width:max-content;padding:16px 24px 40px}
+.js .cat-track{animation:marquee 52s linear infinite;padding-left:0}
+.catalog:hover .cat-track{animation-play-state:paused}
+.pcard{position:relative;overflow:hidden;flex:none;width:236px;border-radius:24px;padding:18px 18px 20px;color:#fff;background:linear-gradient(160deg,var(--c1),var(--c2));transition:transform .4s var(--ease),box-shadow .4s}
+.pcard::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+.pcard:hover{transform:translateY(-14px) rotate(-2deg) scale(1.04);box-shadow:0 28px 42px -16px rgba(11,16,48,.6)}
+.pcard:hover::after{transform:translateX(120%)}
+.pcard .tag{position:absolute;top:14px;right:14px;background:#fff;color:var(--navy);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:99px}
+.pcard .e{display:block;font-style:normal;font-size:4.2rem;line-height:1;margin:22px 0 20px;filter:drop-shadow(0 14px 14px rgba(0,0,0,.4));transition:transform .55s var(--ease)}
+.pcard:hover .e{transform:scale(1.22) rotate(-10deg)}
+.pcard b{display:block;font:italic 800 1.65rem/1 var(--f-head)}
+.pcard>span:not(.tag){display:block;margin-top:4px;opacity:.85;font-size:.92rem}
+.pcard em{display:block;margin-top:14px;font:italic 800 1.7rem/1 var(--f-head)}
+
+/* ---------- botón fijo en celular + confeti ---------- */
+#confetti{position:fixed;inset:0;width:100%;height:100%;z-index:200;pointer-events:none}
+.dock{display:none}
+@media(max-width:760px){
+  .dock{display:flex;position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:40;font-size:1.4rem;padding:17px;box-shadow:0 18px 34px -8px rgba(0,0,0,.55);transform:translateY(160%);transition:transform .5s var(--ease),color .35s,border-color .35s}
+  .dock.show{transform:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .rider{transform:translateX(52vw)}
+  .cat-track{overflow-x:auto}
+}
+
+/* logo estable en pantallas pequeñas */
+.logo svg{flex:none}
+@media(max-width:420px){.logo{font-size:1.45rem;gap:8px}.logo svg{width:22px;height:18px}}
