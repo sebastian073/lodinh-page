@@ -408,3 +408,16 @@ input:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 4px rgba(255
 /* logo estable en pantallas pequeñas */
 .logo svg{flex:none}
 @media(max-width:420px){.logo{font-size:1.45rem;gap:8px}.logo svg{width:22px;height:18px}}
+
+/* ---------- formulario de HubSpot dentro de la tarjeta ---------- */
+.hs-box{background:#fff;color:#0B1030;border-radius:12px;padding:18px 16px 10px;margin-bottom:8px;min-height:120px}
+.hs-box label{color:#0B1030}
+.hs-box input[type="checkbox"],.hs-box input[type="radio"]{width:auto;margin:0 8px 0 0;transform:none}
+.hs-box input,.hs-box select,.hs-box textarea{transform:none!important}
+.hs-box input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]){border:1px solid #C9CBC6}
+
+/* en pantallas medianas y pequeñas, la entrada lateral solo sube (evita ensanchar la página) */
+@media(max-width:1240px){
+  .js .rv-l,.js .rv-r{transform:translateY(40px)}
+  .js .rv-l.in,.js .rv-r.in{transform:none}
+}
