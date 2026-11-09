@@ -101,43 +101,41 @@
 }
 </script>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5KRVV852');</script>
-<!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js). Si ya mides GA4 desde GTM, borra este bloque para no contar doble -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQRZK3T6FD"></script>
+<!-- Etiquetas (GTM / GA4 / HubSpot): se cargan al primer gesto del usuario o tras unos segundos, para que no frenen el primer pintado -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QQRZK3T6FD');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+(function(){
+  var done={};
+  function add(src,k){if(done[k])return;done[k]=1;var s=document.createElement('script');s.async=true;s.src=src;document.head.appendChild(s)}
+  function loadForm(){add('https://js.hsforms.net/forms/embed/52171452.js','hs')}
+  function loadTags(){
+    if(done.tags)return;done.tags=1;
+    dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    add('https://www.googletagmanager.com/gtm.js?id=GTM-5KRVV852','gtm');
+    /* Si ya mides GA4 desde GTM, borra estas 3 líneas de gtag para no contar doble */
+    gtag('js',new Date());gtag('config','G-QQRZK3T6FD');
+    add('https://www.googletagmanager.com/gtag/js?id=G-QQRZK3T6FD','gtag');
+  }
+  var ev=['pointerdown','keydown','scroll','touchstart','mousemove'];
+  function go(){ev.forEach(function(e){removeEventListener(e,go)});loadForm();loadTags()}
+  ev.forEach(function(e){addEventListener(e,go,{passive:true,once:true})});
+  addEventListener('load',function(){setTimeout(loadForm,2500);setTimeout(go,8000)});
+})();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://js.hsforms.net">
 
 <!-- Fuentes y estilos sin bloquear el primer pintado -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<style>
-/* CSS crítico: la cortina de entrada cubre la página hasta que carga styles.css */
-.intro{position:fixed;inset:0;z-index:100;background:#0B1030}
-.intro span{opacity:0}
-</style>
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preload" as="style" href="styles.css" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
-  <style>.intro{display:none}</style>
 </noscript>
 
-<!-- HubSpot: script del formulario (el contenedor del formulario va en el body) -->
-<script src="https://js.hsforms.net/forms/embed/52171452.js" defer></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -145,8 +143,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- intro -->
-<div class="intro" aria-hidden="true"><span>Buen Sport</span></div>
 <!-- barra de revoluciones: progreso de scroll -->
 <div class="rev" aria-hidden="true"><i></i></div>
 
