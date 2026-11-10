@@ -2,11 +2,12 @@
    BUEN SPORT · landing
    Paleta: librea de motociclismo (cobalto + llama + marino)
    ===================================================== */
+@font-face{font-family:"BC Fallback";src:local("Arial");size-adjust:82%;ascent-override:100%;descent-override:20%;line-gap-override:0%}
 :root{
   --cobalt:#1534E0; --navy:#0B1030; --flame:#FF5B1F;
   --paper:#F2F4FA; --card:#FFFFFF; --text:#0B1030; --muted:#4A5070; --line:#CDD3EA; --soft:#B9C0E6;
   --ease:cubic-bezier(.2,.8,.2,1); --ease-io:cubic-bezier(.7,0,.2,1);
-  --f-head:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --f-head:"Barlow Condensed","BC Fallback","Arial Narrow",Impact,sans-serif;
   --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
@@ -37,10 +38,10 @@ section{padding:clamp(72px,9vw,120px) 0}
 @keyframes sweep{0%{transform:rotate(0)}45%{transform:rotate(240deg)}100%{transform:rotate(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes marquee{to{transform:translateX(-50%)}}
-@keyframes check{to{background-position:40px 0}}
-@keyframes lane{to{background-position:-96px 0}}
+@keyframes check{to{transform:translateX(-40px)}}
+@keyframes lane{to{transform:translateX(-96px)}}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-16px) rotate(1.2deg)}}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,91,31,.65)}70%{box-shadow:0 0 0 20px rgba(255,91,31,0)}100%{box-shadow:0 0 0 0 rgba(255,91,31,0)}}
+@keyframes pulse{50%{scale:1.045}}
 @keyframes toast{from{opacity:0;transform:translateY(24px) scale(.9)}to{opacity:1;transform:none}}
 @keyframes pop{0%{transform:scale(0) rotate(-40deg)}70%{transform:scale(1.35) rotate(8deg)}100%{transform:scale(1) rotate(0)}}
 @keyframes blink{50%{opacity:.3}}
@@ -167,7 +168,7 @@ input:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 4px rgba(255
 /* ---------- 4. cta ---------- */
 .cta{position:relative;overflow:hidden;background:var(--navy);color:#fff;padding-bottom:clamp(110px,12vw,150px)}
 .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.1) 1.5px,transparent 1.5px) 0 0/26px 26px,radial-gradient(700px 400px at 12% 0%,rgba(21,52,224,.7),transparent 70%)}
-.cta::after{content:"";position:absolute;left:0;right:0;bottom:40px;height:6px;background:repeating-linear-gradient(90deg,var(--flame) 0 48px,transparent 48px 96px);background-size:96px 6px;animation:lane .8s linear infinite}
+.cta::after{content:"";position:absolute;left:0;width:calc(100% + 96px);bottom:40px;will-change:transform;height:6px;background:repeating-linear-gradient(90deg,var(--flame) 0 48px,transparent 48px 96px);background-size:96px 6px;animation:lane .8s linear infinite}
 .cta .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .cta h2{margin-bottom:20px}
 .cta p{color:var(--soft);max-width:36ch;margin:0 0 30px}
@@ -275,7 +276,7 @@ input:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 4px rgba(255
 
 /* ---------- 8. prefooter ---------- */
 .pre{position:relative;overflow:hidden;background:var(--flame);color:var(--navy);padding:clamp(96px,11vw,140px) 0 clamp(72px,9vw,110px)}
-.pre::before{content:"";position:absolute;left:0;right:0;top:0;height:40px;background:conic-gradient(var(--navy) 25%,#fff 0 50%,var(--navy) 0 75%,#fff 0) 0 0/40px 40px;animation:check 1.4s linear infinite}
+.pre::before{content:"";position:absolute;left:0;width:calc(100% + 40px);top:0;height:40px;will-change:transform;background:conic-gradient(var(--navy) 25%,#fff 0 50%,var(--navy) 0 75%,#fff 0) 0 0/40px 40px;animation:check 1.4s linear infinite}
 .pre .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .pre h2{font-size:clamp(3rem,7vw,5.4rem);max-width:11ch;font-weight:900}
 .pre p.sub{margin:18px 0 0;font-weight:600;font-size:1.15rem;max-width:30ch}
@@ -323,7 +324,7 @@ input:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 4px rgba(255
 @keyframes drift{to{transform:translate(-140px,-70px) scale(1.25)}}
 @keyframes ride{from{transform:translateX(-140%)}to{transform:translateX(calc(100vw + 40%))}}
 @keyframes bob{to{transform:translateY(-3px) rotate(-.7deg)}}
-@keyframes lane2{to{background-position:-90px 0}}
+@keyframes lane2{to{transform:translateX(-90px)}}
 
 /* ---------- hero con más presencia ---------- */
 .hero{overflow:hidden;overflow:clip;min-height:calc(100vh - 68px);display:flex;flex-direction:column;justify-content:center;padding-bottom:clamp(190px,17vw,240px)}
@@ -343,7 +344,7 @@ input:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 4px rgba(255
 
 /* carretera con la moto */
 .road{position:absolute;z-index:1;left:0;right:0;bottom:24px;height:104px;background:#070A22;border-block:4px solid var(--flame)}
-.road .lane{position:absolute;left:0;right:0;top:68%;height:5px;background:repeating-linear-gradient(90deg,#fff 0 42px,transparent 42px 90px);background-size:90px 5px;animation:lane2 .45s linear infinite}
+.road .lane{position:absolute;left:0;width:calc(100% + 90px);will-change:transform;top:68%;height:5px;background:repeating-linear-gradient(90deg,#fff 0 42px,transparent 42px 90px);background-size:90px 5px;animation:lane2 .45s linear infinite}
 .rider{position:absolute;left:0;bottom:30px;width:clamp(230px,27vw,380px);transform:translateX(-140%);animation:ride 9s linear 2.7s infinite}
 .rider::before{content:"";position:absolute;right:88%;top:44%;width:95%;height:44px;opacity:.9;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.85)) 0 0/100% 3px no-repeat,
@@ -418,3 +419,10 @@ input:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 4px rgba(255
   .js .rv-l,.js .rv-r{transform:translateY(40px)}
   .js .rv-l.in,.js .rv-r.in{transform:none}
 }
+
+/* Marcador mientras se carga el formulario de HubSpot (el alto ya está reservado: sin saltos) */
+.hs-box{position:relative}
+.hs-box::before{content:"Cargando formulario…";position:absolute;inset:0;display:grid;place-items:center;color:#5A5F78;font:600 .95rem var(--f-body)}
+.hs-box:has(form),.hs-box:has(iframe){}
+.hs-box:has(form)::before,.hs-box:has(iframe)::before{display:none}
+.hs-form-frame{position:relative;z-index:1}

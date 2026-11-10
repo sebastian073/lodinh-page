@@ -101,7 +101,7 @@
 }
 </script>
 
-<!-- Etiquetas (GTM / GA4 / HubSpot): se cargan al primer gesto del usuario o tras unos segundos, para que no frenen el primer pintado -->
+<!-- Etiquetas (GTM / GA4 / HubSpot): se cargan al primer gesto del usuario (mover el mouse, tocar, hacer scroll) o a los 12 s, para que no frenen el primer pintado -->
 <script>
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
@@ -120,7 +120,7 @@ function gtag(){dataLayer.push(arguments)}
   var ev=['pointerdown','keydown','scroll','touchstart','mousemove'];
   function go(){ev.forEach(function(e){removeEventListener(e,go)});loadForm();loadTags()}
   ev.forEach(function(e){addEventListener(e,go,{passive:true,once:true})});
-  addEventListener('load',function(){setTimeout(loadForm,2500);setTimeout(go,8000)});
+  addEventListener('load',function(){setTimeout(go,12000)});
 })();
 </script>
 
@@ -129,8 +129,17 @@ function gtag(){dataLayer.push(arguments)}
 
 <!-- Fuentes y estilos sin bloquear el primer pintado -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<script>document.documentElement.classList.add('js')</script>
-<link rel="preload" as="style" href="styles.css" onload="this.onload=null;this.rel='stylesheet'">
+<style>
+/* CSS crítico: no se muestra nada hasta que styles.css esté aplicado (evita el salto de diseño / CLS) */
+html{background:#0B1030}
+html.js:not(.ready) body{visibility:hidden}
+</style>
+<script>
+document.documentElement.classList.add('js');
+function cssReady(){document.documentElement.classList.add('ready')}
+setTimeout(cssReady,3000);
+</script>
+<link rel="preload" as="style" href="styles.css" onload="this.onload=null;this.rel='stylesheet';cssReady()">
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
@@ -484,24 +493,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   /* ---- scroll: barra de revoluciones, aguja, header, parallax ---- */
   var dock=document.querySelector('.dock'),cta=document.getElementById('descargar'),foot=document.querySelector('.site');
-  var ticking=false;
+  var revBar=document.querySelector('.rev'),gaugeEl=document.querySelector('.gauge');
+  var ticking=false,lastScrolled=null,lastShow=null;
   function update(){
-    var y=window.scrollY||window.pageYOffset;
-    var h=root.scrollHeight-window.innerHeight;
+    /* 1) leer todo el layout primero */
+    var y=window.scrollY||window.pageYOffset,vh=window.innerHeight;
+    var h=root.scrollHeight-vh;
+    var c=dock?cta.getBoundingClientRect():null,f=dock?foot.getBoundingClientRect():null;
+    /* 2) escribir después, solo en los elementos que lo usan */
     var p=h>0?Math.min(1,Math.max(0,y/h)):0;
-    root.style.setProperty('--p',p.toFixed(4));
-    root.style.setProperty('--rot',(-120+240*p).toFixed(1));
-    root.style.setProperty('--sy',Math.round(y));
-    header.classList.toggle('scrolled',y>10);
+    if(revBar)revBar.style.setProperty('--p',p.toFixed(4));
+    if(gaugeEl){gaugeEl.style.setProperty('--rot',(-120+240*p).toFixed(1));gaugeEl.style.setProperty('--sy',Math.round(y))}
+    var sc=y>10;if(sc!==lastScrolled){lastScrolled=sc;header.classList.toggle('scrolled',sc)}
     if(dock){
-      var c=cta.getBoundingClientRect(),f=foot.getBoundingClientRect();
-      dock.classList.toggle('show',y>560&&!(c.top<window.innerHeight&&c.bottom>0)&&f.top>window.innerHeight);
+      var show=y>560&&!(c.top<vh&&c.bottom>0)&&f.top>vh;
+      if(show!==lastShow){lastShow=show;dock.classList.toggle('show',show)}
     }
     ticking=false;
   }
   window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
-  window.addEventListener('resize',update);
-  update();
+  window.addEventListener('resize',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}});
+  requestAnimationFrame(update);
 
   /* ---- revelado + contadores ---- */
   document.querySelectorAll('[data-stagger]').forEach(function(c){
@@ -533,7 +545,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         el.classList.add('in');
         if(el.dataset&&el.dataset.to)count(el);
         el.querySelectorAll('[data-to]').forEach(count);
-        var d=parseFloat(getComputedStyle(el).getPropertyValue('--d'))||0;
+        var d=parseFloat(el.style.getPropertyValue('--d'))||0;
         setTimeout(function(){el.classList.add('done')},(d>20?d:d*1000)+1100);
         io.unobserve(el);
       });
